@@ -76,5 +76,42 @@ class Codeathon {
 	   WebUI.click(findTestObject('Object Repository/loginpage/submit'))
 	}
 
+	@Then("User wants to enter any invaild email id and invalid password and click on login button")
+	def user_wnats_toenter_ivalid_username_password() {
+		WebUI.delay(4)
+		WebUI.setText(findTestObject('Object Repository/loginpage/email'), 'abcd@gmail.com')
+		
+		WebUI.setText(findTestObject('Object Repository/loginpage/emailpassword'), '122345')
+		WebUI.click(findTestObject('Object Repository/loginpage/login'))
+	}
+	
+	@Then("User should be able to see an error message is displayed indicating that both fields are required to login.")
+	def user_wants_to_enter_blankemail_and_password_and_error_meassage() {
+		WebUI.delay(3)
+		WebUI.setText(findTestObject('Object Repository/loginpage/email'), '')
+		WebUI.delay(2)
+		WebUI.setText(findTestObject('Object Repository/loginpage/emailpassword'), '')
+		WebUI.delay(2)
+		WebUI.click(findTestObject('Object Repository/loginpage/login'))
+	}
+	
+	@Then("user should be able to enter name email id and password confirm password and click submit button")
+	def user_should_be_enter_name_email_password_confirm_password() {
+		WebUI.delay(3)
+		WebUI.click(findTestObject('Object Repository/loginpage/signup'))
+		WebUI.setText(findTestObject('Object Repository/loginpage/name'), 'prasannapasupuleti')
+		WebUI.delay(3)
+		WebUI.setText(findTestObject('Object Repository/loginpage/signupemail'), 'prasannapasupuleti94@gmail.com')
+		WebUI.delay(3)
+		WebUI.setText(findTestObject('Object Repository/loginpage/signuppassword'), 'HKps12#@')
+		WebUI.delay(3)
+		WebUI.setText(findTestObject('Object Repository/loginpage/confirmpassword'), 'HKps12#@')
+		WebUI.delay(3)
+		WebUI.click(findTestObject('Object Repository/loginpage/submit'))
+		
+	}
+	
+	
+
 	
 }
